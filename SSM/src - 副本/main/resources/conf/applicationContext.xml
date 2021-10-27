@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/task
+       http://www.springframework.org/schema/task/spring-task-4.1.xsd">
+
+    <!--spring配置文件-->
+
+    <!--声明数据源，链接数据库-->
+<!--    <context:property-placeholder location="classpath:conf/jdbc.properties"/>-->
+    <context:property-placeholder location="file:${catalina.home}/config/jdbc.properties"/>
+    <!--声明数据源DateSOurce，作用是链接数据库的-->
+    <!--使用属性配置文件中的数据，语法${key}-->
+    <bean id="myDataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.uesrname}" />
+        <property name="password" value="${jdbc.passwd}" />
+        <!--最大连接数-->
+        <property name="maxActive" value="${jdbc.max}" />
+    </bean>
+    <!--声明mybatis中提供的SqlSessionFactoryBean类，这个类内部创建SqlSessioFactory的-->
+    <bean id="sqlSessionFactory" class = "org.mybatis.spring.SqlSessionFactoryBean" >
+        <!--        set注入，把数据库链接池给了datasource属性-->
+        <property name="dataSource" ref="myDataSource" />
+        <!--mybatis主配置文件的位置
+        configlocation属性是Resource类型的，读取配置文件
+        它的赋值，使用value，指定文件的路径，使用classpath：表示文件的位置
+        -->
+        <property name="configLocation" value="classpath:conf/mybatis.xml" />
+    </bean>
+
+    <!--mybatis的扫描器，创建dao对象-->
+    <bean class = "org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--指定sqlSessionFactory的id-->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+        <!--指定包名，包名是dao接口所在的包名
+        MapperScannerConfigurer会扫描包中的所有接口，包每个接口都执行
+        创建好的dao对象放入到spring的容器中的 dao对象的默认名称是 接口名的首字母小写
+        -->
+        <property name="basePackage" value="cn.bigbaic.dao"/>
+    </bean>
+    <!--声明service的注解@Service所在的包名位置-->
+    <context:component-scan base-package="cn.bigbaic.service" />
+
+    <!--事务配置： 注解的配置，aspectj的配置 二选一-->
+    <!--可以后期加-->
+
+    <!-- 配置任务扫描 -->
+    <task:annotation-driven />
+
+
+</beans>

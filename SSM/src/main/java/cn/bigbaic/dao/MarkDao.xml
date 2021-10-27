@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bigbaic.dao.MarkDao">
+
+    <!--    &lt;!&ndash;这里可以写别名，是mybatis.xml里设置的resultType=Student&ndash;&gt;
+        <select id="selectStudent" resultType="cn.bigbaic.domain.Student">
+            select * from student by id desc;
+        </select>-->
+    <insert id="initData" >
+        insert into mark(fundcode,jzrq,gszzl,gztime) values(#{fundcode},date_format(now(), '%Y-%m-%d'),0.0,'9:00')
+    </insert>
+
+    <insert id="insertMark" >
+        insert into mark(fundcode,jzrq,gszzl,gztime) values(#{fundcode},date_format(now(), '%Y-%m-%d'),#{gszzl},#{gztime})
+    </insert>
+
+    <select id="selectLastMark" resultType="cn.bigbaic.domain.Mark">
+        select * from mark where jzrq = date_format(now(), '%Y-%m-%d') and fundcode = #{fundcode}  order by gztime desc limit 1
+    </select>
+
+    <select id="isExist" resultType="Integer">
+        select count(0) from mark where jzrq = date_format(now(), '%Y-%m-%d') and fundcode = #{fundcode}
+    </select>
+
+</mapper>

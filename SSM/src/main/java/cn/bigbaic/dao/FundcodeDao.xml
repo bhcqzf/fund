@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bigbaic.dao.FundcodeDao">
+
+        <!--这里可以写别名，是mybatis.xml里设置的resultType=Student-->
+        <select id="selectFundcode" resultType="cn.bigbaic.domain.Fundcode">
+            select * from fundlist where enable = 1
+        </select>
+
+</mapper>
