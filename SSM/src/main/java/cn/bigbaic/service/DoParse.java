@@ -44,7 +44,7 @@ public class DoParse {
             String title = "当前基金==>"+fund.getName();
             String message = "预计变化==>"+String.valueOf(difference)+"            " +
                     "当前估算净值==>"+String.valueOf(fund.getGszzl());
-            PushMessage.pushBark(title,message);
+            PushMessage.pushBark(title,message);//
             issend = true;
         }else{
             System.out.println("当前差值为"+String.valueOf(difference)+"小于0.2略过");
