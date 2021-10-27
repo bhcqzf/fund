@@ -5,10 +5,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>cn.bigbaic</groupId>
-  <artifactId>ch07-ssm</artifactId>
+  <artifactId>fund</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
-
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -94,17 +93,31 @@
       <artifactId>jsr250-api</artifactId>
       <version>1.0</version>
     </dependency>
+     <!--okhttp-->
+    <dependency>
+      <groupId>com.squareup.okhttp3</groupId>
+      <artifactId>okhttp</artifactId>
+      <version>3.14.2</version>
+    </dependency>
 
   </dependencies>
   <build>
     <resources>
       <resource>
         <directory>src/main/java</directory>  <!--所在的目录-->
-        <includes><!--包括目录下的.xml  properties文件会到编译目录-->
+        <includes><!--包括目录下的.FundcodeDao.xml  properties文件会到编译目录-->
           <include>**/*</include>
         </includes>
         <filtering>false</filtering>
       </resource>
+      <resource>
+        <directory>src/main/resources/</directory>  <!--所在的目录-->
+        <includes><!--包括目录下的.FundcodeDao.xml  properties文件会到编译目录-->
+          <include>**/*</include>
+        </includes>
+        <filtering>false</filtering>
+      </resource>
+
     </resources>
   </build>
 </project>
