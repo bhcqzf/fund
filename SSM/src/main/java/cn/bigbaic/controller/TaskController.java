@@ -52,7 +52,7 @@ public class TaskController {
 
     }
 
-    @Scheduled(cron = "0 0 0 * * * ") // 间隔5秒执行
+    @Scheduled(cron = "0 0 0 * * * ") // 间隔5秒执行、、
     public void test() {
        Fundcode[] fundcodes = fundcodeDao.selectFundcode();
         for (Fundcode fundcode:
