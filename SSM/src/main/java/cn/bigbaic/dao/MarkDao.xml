@@ -13,7 +13,7 @@
     </insert>
 
     <insert id="insertMark" >
-        insert into mark(fundcode,jzrq,gszzl,gztime) values(#{fundcode},date_format(now(), '%Y-%m-%d'),#{gszzl},#{gztime})
+        insert into mark(fundcode,jzrq,gszzl,gztime) values(#{fundcode},date_format(now(), '%Y-%m-%d'),#{gszzl},date_format(now(), '%H:%i:%s'))
     </insert>
 
     <select id="selectLastMark" resultType="cn.bigbaic.domain.Mark">
