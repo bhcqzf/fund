@@ -21,7 +21,7 @@ public class TaskController {
     @Autowired
     private FundcodeDao fundcodeDao;
 
-    @Scheduled(cron = "0 0/3 9-10,13-14 * * MON-FRI ") // 工作日9点到10点 下午1-3点每隔10分一次
+    @Scheduled(cron = "0 0/10 9-10,13-14 * * MON-FRI ") // 工作日9点到10点 下午1-3点每隔10分一次
 //    @Scheduled(cron = "0/5 * * * * MON-FRI") // 间隔5秒执行
     public void taskCycle() {
         System.out.println("使用SpringMVC框架配置定时任务");
