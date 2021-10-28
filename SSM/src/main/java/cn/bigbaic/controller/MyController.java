@@ -1,13 +1,16 @@
 package cn.bigbaic.controller;
 
 import cn.bigbaic.dao.FundcodeDao;
+import cn.bigbaic.domain.Fund;
 import cn.bigbaic.domain.Fundcode;
 import cn.bigbaic.service.DoParse;
+import cn.bigbaic.service.GetFndInfo;
 import cn.bigbaic.service.SayHello;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
@@ -29,6 +32,9 @@ public class MyController {
     @Autowired
     private FundcodeDao fundcodeDao;
 
+    @Autowired
+    private GetFndInfo getFndInfo;
+
     @ResponseBody
     @RequestMapping(value="/getfund",method = {RequestMethod.GET})
     public String getfund(){
@@ -42,6 +48,23 @@ public class MyController {
             }
         }
         return res;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/addfund")
+    public String addfund(@RequestParam String fundcode){
+        Fund fund = getFndInfo.getFundInfo(fundcode);
+        System.out.println(fund);
+        boolean isExist = fundcodeDao.selectIsExist(fund.getFundcode())>0?true:false;
+        if (!isExist){
+            Fundcode fundcode1 = new Fundcode();
+            fundcode1.setFundcode(fundcode);
+            fundcode1.setName(fund.getName());
+            fundcode1.setEnable(1);
+            int insertRes = fundcodeDao.insertFundcode(fundcode1);
+            System.out.println(insertRes==1?"插入成功":"插入失败");
+        }
+        return "{\"success\":\"true\",\"msg\":\"yes\"}";
     }
 
 }

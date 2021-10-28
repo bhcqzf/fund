@@ -8,5 +8,13 @@
         <select id="selectFundcode" resultType="cn.bigbaic.domain.Fundcode">
             select * from fundlist where enable = 1
         </select>
+    <select id="selectIsExist" resultType="Integer">
+        select count(0) from fundlist where fundcode = #{fundcode}
+    </select>
+
+    <insert id="insertFundcode" >
+        insert into fundlist(fundcode,name,enable)
+        value(#{fundcode},#{name},#{enable})
+    </insert>
 
 </mapper>

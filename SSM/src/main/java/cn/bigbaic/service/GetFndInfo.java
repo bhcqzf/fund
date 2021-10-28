@@ -52,8 +52,6 @@ public class GetFndInfo {
             e.printStackTrace();
         }
         return fund;
-
-
     }
 
     public void init(){
