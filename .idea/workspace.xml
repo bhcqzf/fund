@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5998340-2df2-4135-9652-022c4e456bc0" name="Default Changelist" comment="test9">
+    <list default="true" id="a5998340-2df2-4135-9652-022c4e456bc0" name="Default Changelist" comment="test11">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SSM/src/main/java/cn/bigbaic/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SSM/src/main/java/cn/bigbaic/controller/TaskController.java" afterDir="false" />
     </list>
     <list id="2f4fc80a-839c-44b6-99a0-c07758c04c5f" name="隐藏" comment="" />
@@ -110,7 +111,21 @@
       <option name="project" value="LOCAL" />
       <updated>1635337294073</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="test10">
+      <created>1635337368564</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1635337368564</updated>
+    </task>
+    <task id="LOCAL-00012" summary="test11">
+      <created>1635337478048</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1635337478048</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -148,6 +163,8 @@
     <MESSAGE value="test7" />
     <MESSAGE value="test8" />
     <MESSAGE value="test9" />
-    <option name="LAST_COMMIT_MESSAGE" value="test9" />
+    <MESSAGE value="test10" />
+    <MESSAGE value="test11" />
+    <option name="LAST_COMMIT_MESSAGE" value="test11" />
   </component>
 </project>
