@@ -13,8 +13,8 @@
     <!--spring配置文件-->
 
     <!--声明数据源，链接数据库-->
-    <context:property-placeholder location="classpath:conf/jdbc.properties"/>
-<!--    <context:property-placeholder location="file:${catalina.home}/config/jdbc.properties"/>-->
+<!--    <context:property-placeholder location="classpath:conf/jdbc.properties"/>-->
+    <context:property-placeholder location="file:${catalina.home}/config/jdbc.properties"/>
     <!--声明数据源DateSOurce，作用是链接数据库的-->
     <!--使用属性配置文件中的数据，语法${key}-->
     <bean id="myDataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
