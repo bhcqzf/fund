@@ -1,6 +1,7 @@
 package cn.bigbaic.controller;
 
 import cn.bigbaic.dao.FundcodeDao;
+import cn.bigbaic.dao.MarkDao;
 import cn.bigbaic.domain.Fund;
 import cn.bigbaic.domain.Fundcode;
 import cn.bigbaic.service.DoParse;
@@ -35,6 +36,9 @@ public class MyController {
     @Autowired
     private GetFndInfo getFndInfo;
 
+    @Autowired
+    private MarkDao markDao;
+
     @ResponseBody
     @RequestMapping(value="/getfund",method = {RequestMethod.GET})
     public String getfund(){
@@ -67,4 +71,19 @@ public class MyController {
         return "{\"success\":\"true\",\"msg\":\"yes\"}";
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/init")
+    public void initData() {
+        Fundcode[] fundcodes = fundcodeDao.selectFundcode();
+        for (Fundcode fundcode:
+                fundcodes) {
+            System.out.println(fundcode);
+            if (markDao.isExist(fundcode) == 0 ){
+                System.out.println("初始化数据");
+                markDao.initData(fundcode);
+            }else{
+                System.out.println("数据已存在,无需重复初始化");
+            }
+        }
+    }
 }
