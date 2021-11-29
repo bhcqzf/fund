@@ -88,6 +88,6 @@ public class MyController {
                 msg = "数据已存在,无需重复初始化";
             }
         }
-        return "{\"msg\":"+  msg  +"}";
+        return "{\"msg\":\""+  msg  +"\"}";
     }
 }
