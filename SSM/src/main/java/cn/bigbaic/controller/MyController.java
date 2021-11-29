@@ -73,7 +73,8 @@ public class MyController {
 
     @ResponseBody
     @RequestMapping(value = "/init")
-    public void initData() {
+    public String initData() {
+        String msg = "";
         Fundcode[] fundcodes = fundcodeDao.selectFundcode();
         for (Fundcode fundcode:
                 fundcodes) {
@@ -81,9 +82,12 @@ public class MyController {
             if (markDao.isExist(fundcode) == 0 ){
                 System.out.println("初始化数据");
                 markDao.initData(fundcode);
+                msg = "初始化数据成功";
             }else{
                 System.out.println("数据已存在,无需重复初始化");
+                msg = "数据已存在,无需重复初始化";
             }
         }
+        return "{\"msg\":"+  msg  +"}";
     }
 }
