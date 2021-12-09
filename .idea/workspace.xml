@@ -9,7 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5998340-2df2-4135-9652-022c4e456bc0" name="Default Changelist" comment="优化返回结果，引入Result类" />
+    <list default="true" id="a5998340-2df2-4135-9652-022c4e456bc0" name="Default Changelist" comment="删除多余代码">
+      <change beforePath="$PROJECT_DIR$/SSM/src/main/java/cn/bigbaic/service/DoParse.java" beforeDir="false" afterPath="$PROJECT_DIR$/SSM/src/main/java/cn/bigbaic/service/DoParse.java" afterDir="false" />
+    </list>
     <list id="2f4fc80a-839c-44b6-99a0-c07758c04c5f" name="隐藏" comment="隐藏">
       <change beforePath="$PROJECT_DIR$/SSM/src/main/resources/conf/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SSM/src/main/resources/conf/applicationContext.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SSM/src/main/resources/conf/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/SSM/src/main/resources/conf/jdbc.properties" afterDir="false" />
@@ -217,7 +219,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1635334387992</updated>
-      <workItem from="1639024641238" duration="4752000" />
+      <workItem from="1639024641238" duration="5122000" />
     </task>
     <task id="LOCAL-00003" summary="test2">
       <created>1635334660420</created>
@@ -303,7 +305,21 @@
       <option name="project" value="LOCAL" />
       <updated>1639029104209</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="修改错字">
+      <created>1639029479628</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1639029479628</updated>
+    </task>
+    <task id="LOCAL-00016" summary="删除多余代码">
+      <created>1639029796231</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1639029796231</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -348,6 +364,8 @@
     <MESSAGE value="test11" />
     <MESSAGE value="更改时间bug" />
     <MESSAGE value="优化返回结果，引入Result类" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化返回结果，引入Result类" />
+    <MESSAGE value="修改错字" />
+    <MESSAGE value="删除多余代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="删除多余代码" />
   </component>
 </project>
