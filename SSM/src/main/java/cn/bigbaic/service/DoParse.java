@@ -39,7 +39,7 @@ public class DoParse {
         if (( difference >= 0.2) || (difference <= -0.2)){
             System.out.println("当前差值==>"+String.valueOf(difference));
             System.out.println("当前mark中的净值==>"+String.valueOf(mark.getGszzl()));
-            System.out.println("现在插入数据库的精致==>"+String.valueOf(fund.getGszzl()));
+            System.out.println("现在插入数据库的净值==>"+String.valueOf(fund.getGszzl()));
             markDao.insertMark(fund);
             String title = "当前基金==>"+fund.getName();
             String message = "预计变化==>"+String.valueOf(difference)+"            " +
@@ -51,22 +51,7 @@ public class DoParse {
         }
         return issend;
     }
-  /*  public Fund sendMsg(String fundcode){
-        fund = this.addFund(fundcode);
-        System.out.println(this.fund);
-        Mark mark = markDao.selectLastMark(fund);
-        System.out.println(mark);
-        Float difference = fund.getGszzl() - mark.getGszzl();
-        System.out.println("当前差值==>"+String.valueOf(difference));
-        System.out.println("当前mark中的净值==>"+String.valueOf(mark.getGszzl()));
-        System.out.println("现在插入数据库的精致==>"+String.valueOf(fund.getGszzl()));
-        markDao.insertMark(fund);
-        String title = "当前基金==>"+fund.getName();
-        String message = "预计变化==>"+String.valueOf(difference)+"            " +
-                "当前估算净值==>"+String.valueOf(fund.getGszzl());
-        PushMessage.pushBark(title,message);
-        return fund;
-    }*/
+
     public Fund sendMsg(String fundcode){
     fund = this.addFund(fundcode);
     Mark mark = markDao.selectLastMark(fund);
