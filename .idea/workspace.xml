@@ -9,18 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5998340-2df2-4135-9652-022c4e456bc0" name="Default Changelist" comment="更改时间bug">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/ch07_ssm_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/ch07_ssm_war.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/ch07_ssm_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/ch07_ssm_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSM/ch07-ssm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SSM/ch07-ssm.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSM/src/main/java/cn/bigbaic/controller/MyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SSM/src/main/java/cn/bigbaic/controller/MyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSM/src/main/java/cn/bigbaic/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SSM/src/main/java/cn/bigbaic/controller/TaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSM/src/main/java/cn/bigbaic/service/DoParse.java" beforeDir="false" afterPath="$PROJECT_DIR$/SSM/src/main/java/cn/bigbaic/service/DoParse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSM/src/main/resources/conf/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/SSM/src/main/resources/conf/jdbc.properties" afterDir="false" />
-    </list>
+    <list default="true" id="a5998340-2df2-4135-9652-022c4e456bc0" name="Default Changelist" comment="优化返回结果，引入Result类" />
     <list id="2f4fc80a-839c-44b6-99a0-c07758c04c5f" name="隐藏" comment="隐藏">
       <change beforePath="$PROJECT_DIR$/SSM/src/main/resources/conf/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SSM/src/main/resources/conf/applicationContext.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SSM/src/main/resources/conf/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/SSM/src/main/resources/conf/jdbc.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +217,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1635334387992</updated>
-      <workItem from="1639024641238" duration="4270000" />
+      <workItem from="1639024641238" duration="4752000" />
     </task>
     <task id="LOCAL-00003" summary="test2">
       <created>1635334660420</created>
@@ -304,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635398570799</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="优化返回结果，引入Result类">
+      <created>1639029104209</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1639029104209</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -348,6 +347,7 @@
     <MESSAGE value="test10" />
     <MESSAGE value="test11" />
     <MESSAGE value="更改时间bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="更改时间bug" />
+    <MESSAGE value="优化返回结果，引入Result类" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化返回结果，引入Result类" />
   </component>
 </project>

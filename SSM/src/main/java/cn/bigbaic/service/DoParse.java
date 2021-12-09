@@ -75,7 +75,7 @@ public class DoParse {
     Float difference = fund.getGszzl() - mark.getGszzl();
     System.out.println("当前差值==>" + String.valueOf(difference));
     System.out.println("当前mark中的净值==>" + String.valueOf(mark.getGszzl()));
-    System.out.println("现在插入数据库的精致==>" + String.valueOf(fund.getGszzl()));
+    System.out.println("现在插入数据库的净值==>" + String.valueOf(fund.getGszzl()));
     markDao.insertMark(fund);
     String title = "当前基金==>" + fund.getName();
     String message = "预计变化==>" + String.valueOf(difference) + "            " +
