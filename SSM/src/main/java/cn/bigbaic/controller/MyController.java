@@ -4,9 +4,10 @@ import cn.bigbaic.dao.FundcodeDao;
 import cn.bigbaic.dao.MarkDao;
 import cn.bigbaic.domain.Fund;
 import cn.bigbaic.domain.Fundcode;
+import cn.bigbaic.domain.Result;
 import cn.bigbaic.service.DoParse;
 import cn.bigbaic.service.GetFndInfo;
-import cn.bigbaic.service.SayHello;
+import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.annotation.Resource;
+import java.util.*;
 
 /**
  * <h3>spirngmvc-study</h3>
@@ -42,16 +43,23 @@ public class MyController {
     @ResponseBody
     @RequestMapping(value="/getfund",method = {RequestMethod.GET})
     public String getfund(){
-        Fundcode[] fundcodes = fundcodeDao.selectFundcode();
-        String res = "";
-        for (Fundcode fundcode:fundcodes) {
-            System.out.println(fundcode);
-            boolean issend = doParse.parse(fundcode.getFundcode());
-            if ( !issend ){
-                res = doParse.sendMsg(fundcode.getFundcode());
+        Result result;
+        try {
+            Fundcode[] fundcodes = fundcodeDao.selectFundcode();
+            Fund fund;
+            List<Fund> list = new ArrayList();
+            for (Fundcode fundcode:fundcodes) {
+                System.out.println(fundcode);
+                fund = doParse.sendMsg(fundcode.getFundcode());
+                System.out.println(fund);
+                list.add(fund);
             }
+            result = Result.ok();
+            result.put(list);
+        }catch (Exception e){
+            result = Result.error();
         }
-        return res;
+        return JSON.toJSONString(result);
     }
 
     @ResponseBody
@@ -68,12 +76,13 @@ public class MyController {
             int insertRes = fundcodeDao.insertFundcode(fundcode1);
             System.out.println(insertRes==1?"插入成功":"插入失败");
         }
-        return "{\"success\":\"true\",\"msg\":\"yes\"}";
+        return JSON.toJSONString(Result.ok());
     }
 
     @ResponseBody
     @RequestMapping(value = "/init")
     public String initData() {
+        Result result = new Result();
         String msg = "";
         Fundcode[] fundcodes = fundcodeDao.selectFundcode();
         for (Fundcode fundcode:
@@ -83,11 +92,14 @@ public class MyController {
                 System.out.println("初始化数据");
                 markDao.initData(fundcode);
                 msg = "初始化数据成功";
+                result = Result.ok().put(msg);
             }else{
-                System.out.println("数据已存在,无需重复初始化");
                 msg = "数据已存在,无需重复初始化";
+                System.out.println(msg);
+                result = Result.error(msg);
+
             }
         }
-        return "{\"msg\":\""+  msg  +"\"}";
+        return JSON.toJSONString(result);
     }
 }

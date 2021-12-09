@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="ch07-ssm-1.0-SNAPSHOT.war">
+    <root id="archive" name="fund-1.0-SNAPSHOT.war">
       <element id="artifact" artifact-name="ch07-ssm:war exploded" />
     </root>
   </artifact>

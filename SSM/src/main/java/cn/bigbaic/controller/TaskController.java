@@ -67,21 +67,21 @@ public class TaskController {
                 fundcodes) {
             System.out.println(fundcode);
             doParse.parse(fundcode.getFundcode());
-            res = doParse.sendMsg(fundcode.getFundcode());
+            doParse.sendMsg(fundcode.getFundcode());
         }
         return res;
     }
 
     @Scheduled(cron = "0 0 15 * * MON-FRI ") // 休市时执行一次
-    public String dinner(){
+    public void dinner(){
         Fundcode[] fundcodes = fundcodeDao.selectFundcode();
         String res = "";
         for (Fundcode fundcode:
                 fundcodes) {
             System.out.println(fundcode);
             doParse.parse(fundcode.getFundcode());
-            res = doParse.sendMsg(fundcode.getFundcode());
+            doParse.sendMsg(fundcode.getFundcode());
         }
-        return res;
+        return;
     }
 }
