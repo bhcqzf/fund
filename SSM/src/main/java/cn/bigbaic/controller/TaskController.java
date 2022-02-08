@@ -51,14 +51,6 @@ public class TaskController {
 
     }
 
-/*    @Scheduled(cron = "0 0 0 * * * ") // 每天凌晨执行一次
-    public void test() {
-       Fundcode[] fundcodes = fundcodeDao.selectFundcode();
-        for (Fundcode fundcode:
-             fundcodes) {
-            System.out.println(fundcode);
-        }
-    }*/
     @Scheduled(cron = "0 0-30/10 11 * * MON-FRI ") // 工作日11点到11点半每隔10分执行一次
     public String lunch(){
         Fundcode[] fundcodes = fundcodeDao.selectFundcode();
