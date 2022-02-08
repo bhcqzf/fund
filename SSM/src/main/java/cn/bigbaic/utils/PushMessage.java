@@ -10,7 +10,7 @@ import java.util.Properties;
 public class PushMessage {
     public static String pushBark(String title,String message){
 //        String url = "https:://api.day.app/FzzgGkRJntxwrZ2k3MSziD/" + title+"/"+ message;
-        String url = getProperties() + "/" + title+"/"+ message;
+        String url = getProperties() + "/" + title+"/"+ message + "?group=fund";
 
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
