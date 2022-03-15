@@ -69,14 +69,18 @@ public class MyController {
         System.out.println(fund);
         boolean isExist = fundcodeDao.selectIsExist(fund.getFundcode())>0?true:false;
         if (!isExist){
+            //如果不存在
             Fundcode fundcode1 = new Fundcode();
             fundcode1.setFundcode(fundcode);
             fundcode1.setName(fund.getName());
             fundcode1.setEnable(1);
             int insertRes = fundcodeDao.insertFundcode(fundcode1);
             System.out.println(insertRes==1?"插入成功":"插入失败");
+            return JSON.toJSONString(Result.ok());
+        }else{
+            return JSON.toJSONString(Result.ok(false));
         }
-        return JSON.toJSONString(Result.ok());
+
     }
 
     @ResponseBody

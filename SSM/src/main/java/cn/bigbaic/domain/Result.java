@@ -17,6 +17,17 @@ public class Result extends HashMap<String, Object> implements Serializable {
         return result;
     }
 
+    public static Result ok(Boolean status) {
+        Result result= new Result();
+        result.put("code", 200);
+        if (status == false) {
+            result.put("message", "fail");
+        }else {
+            result.put("message", "success");
+        }
+        return result;
+    }
+
     public static Result error() {
         return error(500, "系统异常");
     }
