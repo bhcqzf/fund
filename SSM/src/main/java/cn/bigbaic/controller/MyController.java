@@ -75,10 +75,15 @@ public class MyController {
             fundcode1.setName(fund.getName());
             fundcode1.setEnable(1);
             int insertRes = fundcodeDao.insertFundcode(fundcode1);
-            System.out.println(insertRes==1?"插入成功":"插入失败");
-            return JSON.toJSONString(Result.ok());
+            String msg = insertRes==1?"数据插入成功":"数据插入失败";
+            System.out.println(msg);
+            if (insertRes==1){
+                return JSON.toJSONString(Result.ok(msg));
+            }else{
+                return JSON.toJSONString(Result.error(msg))
+            }
         }else{
-            return JSON.toJSONString(Result.ok(false));
+            return JSON.toJSONString(Result.ok("该数据已存在"));
         }
 
     }
