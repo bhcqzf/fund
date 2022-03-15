@@ -80,7 +80,7 @@ public class MyController {
             if (insertRes==1){
                 return JSON.toJSONString(Result.ok(msg));
             }else{
-                return JSON.toJSONString(Result.error(msg))
+                return JSON.toJSONString(Result.error(msg));
             }
         }else{
             return JSON.toJSONString(Result.ok("该数据已存在"));
