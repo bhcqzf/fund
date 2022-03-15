@@ -78,6 +78,8 @@ public class MyController {
             String msg = insertRes==1?"数据插入成功":"数据插入失败";
             System.out.println(msg);
             if (insertRes==1){
+                //这里成功以后最好调用一下初始化init
+
                 return JSON.toJSONString(Result.ok(msg));
             }else{
                 return JSON.toJSONString(Result.error(msg));
@@ -109,6 +111,21 @@ public class MyController {
 
             }
         }
+        return JSON.toJSONString(result);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/getallfund")
+    public String getAllFundCode() {
+        Result result = Result.ok();
+        List<Fundcode> list = new ArrayList();
+        Fundcode[] fundcodes = fundcodeDao.selectAllFundcode();
+        for (Fundcode fundcode :
+                fundcodes) {
+            System.out.println(fundcode);
+            list.add(fundcode);
+        }
+        result.put(list);
         return JSON.toJSONString(result);
     }
 }

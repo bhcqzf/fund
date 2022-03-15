@@ -8,6 +8,9 @@
         <select id="selectFundcode" resultType="cn.bigbaic.domain.Fundcode">
             select * from fundlist where enable = 1
         </select>
+    <select id="selectAllFundcode" resultType="cn.bigbaic.domain.Fundcode">
+        select * from fundlist where 1 = 1;
+    </select>
     <select id="selectIsExist" resultType="Integer">
         select count(0) from fundlist where fundcode = #{fundcode}
     </select>
