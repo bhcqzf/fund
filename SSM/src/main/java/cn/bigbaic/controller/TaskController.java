@@ -21,7 +21,7 @@ public class TaskController {
     @Autowired
     private FundcodeDao fundcodeDao;
 
-    @Scheduled(cron = "0 0/10 9-10,13-14 * * MON-FRI ") // 工作日9点到10点 下午1-3点每隔10分一次
+    @Scheduled(cron = "0 0/10 10,13-14 * * MON-FRI ") // 工作日9点到10点 下午1-3点每隔10分一次
 //    @Scheduled(cron = "0/5 * * * * MON-FRI") // 间隔5秒执行
     public void taskCycle() {
         System.out.println("使用SpringMVC框架配置定时任务");
@@ -53,6 +53,19 @@ public class TaskController {
 
     @Scheduled(cron = "0 0-30/10 11 * * MON-FRI ") // 工作日11点到11点半每隔10分执行一次
     public String lunch(){
+        Fundcode[] fundcodes = fundcodeDao.selectFundcode();
+        String res = "";
+        for (Fundcode fundcode:
+                fundcodes) {
+            System.out.println(fundcode);
+            doParse.parse(fundcode.getFundcode());
+            doParse.sendMsg(fundcode.getFundcode());
+        }
+        return res;
+    }
+
+    @Scheduled(cron = "0 30-59/10 9 * * MON-FRI ") // 工作日11点到11点半每隔10分执行一次
+    public String morining(){
         Fundcode[] fundcodes = fundcodeDao.selectFundcode();
         String res = "";
         for (Fundcode fundcode:
