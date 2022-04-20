@@ -20,6 +20,10 @@
         value(#{fundcode},#{name},#{enable})
     </insert>
 
+    <delete id="deleteFundcode" >
+        delete from fundlist where fundcode = #{fundcode}
+    </delete>
+
     <update id="updateEnableFundcode" >
         update fundlist set enable = 1 where fundcode=#{fundcode}
     </update>

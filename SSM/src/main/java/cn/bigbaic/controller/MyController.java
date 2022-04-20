@@ -91,6 +91,31 @@ public class MyController {
     }
 
     @ResponseBody
+    @RequestMapping(value = "/delfund")
+    public String delfund(@RequestParam String fundcode){
+        Fund fund = getFndInfo.getFundInfo(fundcode);
+        System.out.println(fund);
+        boolean isExist = fundcodeDao.selectIsExist(fund.getFundcode())>0?true:false;
+        if (isExist){
+            //如果存在
+            Fundcode fundcode1 = new Fundcode();
+            fundcode1.setFundcode(fundcode);
+            int insertRes = fundcodeDao.deleteFundcode(fundcode1);
+            String msg = insertRes==1?"数据删除成功":"数据删除失败";
+            System.out.println(msg);
+            if (insertRes==1){
+                //这里成功以后最好调用一下初始化init
+                return JSON.toJSONString(Result.ok(msg));
+            }else{
+                return JSON.toJSONString(Result.error(msg));
+            }
+        }else{
+            return JSON.toJSONString(Result.ok("该数据不存在"));
+        }
+
+    }
+
+    @ResponseBody
     @RequestMapping(value = "/init")
     public String initData() {
         Result result = new Result();
