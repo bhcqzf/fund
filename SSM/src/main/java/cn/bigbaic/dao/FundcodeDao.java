@@ -9,4 +9,6 @@ public interface FundcodeDao {
     Integer insertFundcode(Fundcode fundcode);
     Integer updateEnableFundcode(Fundcode fundcode);
     Integer updateDisableFundcode(Fundcode fundcode);
+    Integer updateAllEnableFundcode();
+    Integer updateAllDisableFundcode();
 }

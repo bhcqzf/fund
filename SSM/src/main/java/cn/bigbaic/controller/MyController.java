@@ -159,5 +159,35 @@ public class MyController {
         return JSON.toJSONString(result);
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/enableallfund")
+    public String updateAllEnableFundcode() {
+        Result result = Result.ok();
+        int res = fundcodeDao.updateAllEnableFundcode();
+        String msg;
+        if ( res == 0 ){
+            msg = "全部启用失败";
+        }else{
+            msg = "全部启用成功";
+        }
+        result.put(msg);
+        return JSON.toJSONString(result);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/disableallfund")
+    public String updateAllDisableFundcode() {
+        Result result = Result.ok();
+        int res = fundcodeDao.updateAllDisableFundcode();
+        String msg;
+        if ( res == 0 ){
+            msg = "全部禁用失败";
+        }else{
+            msg = "全部禁用成功";
+        }
+        result.put(msg);
+        return JSON.toJSONString(result);
+    }
+
 
 }
