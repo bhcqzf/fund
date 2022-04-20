@@ -7,4 +7,6 @@ public interface FundcodeDao {
     Fundcode[] selectAllFundcode();
     Integer selectIsExist(String fundcode);
     Integer insertFundcode(Fundcode fundcode);
+    Integer updateEnableFundcode(Fundcode fundcode);
+    Integer updateDisableFundcode(Fundcode fundcode);
 }

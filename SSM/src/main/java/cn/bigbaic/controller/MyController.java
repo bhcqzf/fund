@@ -128,4 +128,36 @@ public class MyController {
         result.put(list);
         return JSON.toJSONString(result);
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/enablefund")
+    public String enableFund(Fundcode fundcode) {
+        Result result = Result.ok();
+        int res = fundcodeDao.updateEnableFundcode(fundcode);
+        String msg;
+        if ( res == 1 ){
+            msg = "启用成功";
+        }else{
+            msg = "启用失败";
+        }
+        result.put(msg);
+        return JSON.toJSONString(result);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/disablefund")
+    public String disableFund(Fundcode fundcode) {
+        Result result = Result.ok();
+        int res = fundcodeDao.updateDisableFundcode(fundcode);
+        String msg;
+        if ( res == 1 ){
+            msg = "禁用成功";
+        }else{
+            msg = "禁用失败";
+        }
+        result.put(msg);
+        return JSON.toJSONString(result);
+    }
+
+
 }

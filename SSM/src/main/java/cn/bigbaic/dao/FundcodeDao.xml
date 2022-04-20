@@ -20,4 +20,12 @@
         value(#{fundcode},#{name},#{enable})
     </insert>
 
+    <update id="updateEnableFundcode" >
+        update fundlist set enable = 1 where fundcode=#{fundcode}
+    </update>
+
+    <update id="updateDisableFundcode" >
+        update fundlist set enable = 0 where fundcode=#{fundcode}
+    </update>
+
 </mapper>
